@@ -1,0 +1,5 @@
+# Redirect old admin URL to new one
+/admin/* /djidjognon/:splat 301
+
+# SPA fallback
+/* /index.html 200

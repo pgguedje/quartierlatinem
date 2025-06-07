@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://quartierlatinem.site/sitemap.xml
+
+# Disallow admin pages from search engines
+Disallow: /djidjognon/
+Disallow: /admin/
+
+# Allow important pages
+Allow: /
+Allow: /data/

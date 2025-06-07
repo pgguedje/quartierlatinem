@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Page d'accueil -->
+  <url>
+    <loc>https://quartierlatinem.site/</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://quartierlatinem.site/IMG-20221220-WA0022.jpg</image:loc>
+      <image:title>CS Quartier Latin EM - École d'Excellence au Bénin</image:title>
+      <image:caption>École de référence au Bénin pour une formation d'excellence</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Section École -->
+  <url>
+    <loc>https://quartierlatinem.site/#about</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Section Cantine -->
+  <url>
+    <loc>https://quartierlatinem.site/#cantine</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Section Résultats -->
+  <url>
+    <loc>https://quartierlatinem.site/#resultats</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Section Contact -->
+  <url>
+    <loc>https://quartierlatinem.site/#contact</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+</urlset>

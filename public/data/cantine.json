@@ -1,0 +1,38 @@
+{
+  "menu_hebdomadaire": {
+    "lundi": {
+      "plat_principal": "Riz sauce gombo aux crevettes",
+      "accompagnement": "Salade de concombre",
+      "boisson": "Jus de bissap",
+      "dessert": "Fruits de saison"
+    },
+    "mardi": {
+      "plat_principal": "Pâte rouge au poisson",
+      "accompagnement": "Légumes verts sautés",
+      "boisson": "Eau minérale",
+      "dessert": "Yaourt local"
+    },
+    "mercredi": {
+      "plat_principal": "Riz au gras avec viande",
+      "accompagnement": "Salade mixte",
+      "boisson": "Jus d'ananas",
+      "dessert": "Banane plantain"
+    },
+    "jeudi": {
+      "plat_principal": "Couscous aux légumes",
+      "accompagnement": "Haricots verts",
+      "boisson": "Bissap",
+      "dessert": "Oranges"
+    },
+    "vendredi": {
+      "plat_principal": "Riz pilaf au poulet",
+      "accompagnement": "Ratatouille",
+      "boisson": "Jus de citron",
+      "dessert": "Gâteau maison"
+    }
+  },
+  "horaires": {
+    "service": "12h00 - 13h30",
+    "inscription": "Avant 10h00 chaque jour"
+  }
+}

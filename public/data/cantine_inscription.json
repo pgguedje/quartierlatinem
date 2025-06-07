@@ -1,0 +1,30 @@
+{
+  "tarifs": {
+    "maternelle": {
+      "journalier": 800,
+      "hebdomadaire": 3500,
+      "mensuel": 12000
+    },
+    "primaire": {
+      "journalier": 1000,
+      "hebdomadaire": 4000,
+      "mensuel": 14000
+    },
+    "secondaire": {
+      "journalier": 1200,
+      "hebdomadaire": 5000,
+      "mensuel": 17000
+    }
+  },
+  "conditions": [
+    "Inscription obligatoire avant 10h00",
+    "Paiement hebdomadaire ou mensuel accepté",
+    "Menu équilibré préparé sur place",
+    "Respect des normes d'hygiène"
+  ],
+  "contact": {
+    "responsable": "Mme Françoise ADJOVI",
+    "telephone": "+229 97 45 68 92",
+    "horaires": "7h30 - 16h00"
+  }
+}

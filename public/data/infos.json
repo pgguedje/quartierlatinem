@@ -1,0 +1,73 @@
+{
+  "ecole": {
+    "nom": "CS Quartier Latin EM",
+    "adresse": "Abomey-Calavi (Zogbadjè), Bénin",
+    "telephone": "+229 95 96 33 45",
+    "email": "contact@csquartierlatin.bj",
+    "description": "L'établissement de référence pour vos enfants, de la maternelle au secondaire général",
+    "horaires": {
+      "lundi_vendredi": "7h30 - 17h00",
+      "samedi": "8h00 - 12h00"
+    }
+  },
+  "frais": {
+    "maternelle": {
+      "anciens": 45000,
+      "nouveaux": 50000,
+      "description": "Frais incluant fournitures de base"
+    },
+    "primaire": {
+      "anciens": 55000,
+      "nouveaux": 60000,
+      "description": "Frais incluant fournitures et activités"
+    },
+    "secondaire": {
+      "anciens": 75000,
+      "nouveaux": 80000,
+      "description": "Frais incluant fournitures et laboratoires"
+    }
+  },
+  "resultats": {
+    "2022": {
+      "CEP": 98.5,
+      "BEPC": 95.2,
+      "BAC": 92.8
+    },
+    "2021": {
+      "CEP": 97.8,
+      "BEPC": 94.5,
+      "BAC": 91.3
+    },
+    "2020": {
+      "CEP": 96.9,
+      "BEPC": 93.8,
+      "BAC": 89.7
+    },
+    "2019": {
+      "CEP": 95.6,
+      "BEPC": 92.4,
+      "BAC": 88.9
+    }
+  },
+  "niveaux": {
+    "maternelle": {
+      "titre": "Maternelle",
+      "description": "Éveil et épanouissement de 3 à 6 ans",
+      "classes": ["Petite Section", "Moyenne Section", "Grande Section"],
+      "pedagogie": "Apprentissage par le jeu et l'exploration"
+    },
+    "primaire": {
+      "titre": "Primaire",
+      "description": "Formation solide des bases fondamentales",
+      "classes": ["CP", "CE1", "CE2", "CM1", "CM2"],
+      "pedagogie": "Méthodes actives et participatives"
+    },
+    "secondaire": {
+      "titre": "Secondaire Général",
+      "description": "Préparation aux examens nationaux",
+      "classes": ["6e", "5e", "4e", "3e", "2nde", "1ère", "Tle"],
+      "series": ["A", "B", "C", "D"],
+      "pedagogie": "Excellence académique et accompagnement personnalisé"
+    }
+  }
+}

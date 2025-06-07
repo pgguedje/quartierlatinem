@@ -1,0 +1,40 @@
+{
+  "annonces": [
+    {
+      "id": 1,
+      "type": "excursion",
+      "titre": "Excursion au Musée Honmè",
+      "date": "2025-06-15",
+      "public": "CM1 à 3e",
+      "description": "Découverte de l'histoire du Royaume du Dahomey",
+      "important": true
+    },
+    {
+      "id": 2,
+      "type": "reunion",
+      "titre": "Réunion parents-professeurs",
+      "date": "2025-03-20",
+      "public": "Tous niveaux",
+      "description": "Bilan du 2e trimestre et orientations",
+      "important": false
+    },
+    {
+      "id": 3,
+      "type": "fermeture",
+      "titre": "Vacances de Pâques",
+      "date": "2025-04-14",
+      "public": "Tous niveaux",
+      "description": "Reprise des cours le 22 avril",
+      "important": true
+    },
+    {
+      "id": 4,
+      "type": "evenement",
+      "titre": "Journée Culturelle Béninoise",
+      "date": "2025-05-01",
+      "public": "Tous niveaux",
+      "description": "Célébration de nos traditions et valeurs",
+      "important": false
+    }
+  ]
+}
