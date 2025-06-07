@@ -54,7 +54,7 @@ const Results = () => {
     return 'from-red-500 to-amber-600';
   };
 
-  // Configuration du graphique Chart.js avec couleurs béninoises
+  // Configuration du graphique Chart.js avec couleurs harmonieuses
   const chartData = {
     labels: years,
     datasets: exams.map((exam, index) => ({
@@ -304,7 +304,7 @@ const Results = () => {
                 whileHover={{ y: -10, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-3xl p-8 shadow-2xl border-4 border-amber-400 relative overflow-hidden">
+                <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-3xl p-8 shadow-2xl border-4 border-amber-400 dark:hover:neon-border relative overflow-hidden">
                   {/* Effet de brillance */}
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-200/20 to-transparent -translate-x-full group-hover:translate-x-full"
@@ -382,7 +382,7 @@ const Results = () => {
 
         {/* Graphique Chart.js avec design traditionnel béninois */}
         <motion.div
-          className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-3xl p-8 shadow-2xl border-4 border-amber-400 mb-16 relative overflow-hidden"
+          className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-3xl p-8 shadow-2xl border-4 border-amber-400 dark:hover:neon-border mb-16 relative overflow-hidden"
           variants={itemVariants}
           initial="hidden"
           animate={hasIntersected ? "visible" : "hidden"}
@@ -410,7 +410,7 @@ const Results = () => {
           animate={hasIntersected ? "visible" : "hidden"}
         >
           <motion.div
-            className="bg-gradient-to-br from-amber-100 via-orange-100 to-red-100 dark:from-amber-900/30 dark:via-orange-900/30 dark:to-red-900/30 rounded-3xl p-12 shadow-2xl border-4 border-amber-400 max-w-4xl mx-auto relative overflow-hidden"
+            className="bg-gradient-to-br from-amber-100 via-orange-100 to-red-100 dark:from-amber-900/30 dark:via-orange-900/30 dark:to-red-900/30 rounded-3xl p-12 shadow-2xl border-4 border-amber-400 dark:hover:neon-border max-w-4xl mx-auto relative overflow-hidden"
             whileHover={{ scale: 1.02 }}
           >
             {/* Motifs décoratifs traditionnels */}
