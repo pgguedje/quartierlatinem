@@ -76,8 +76,8 @@ const About = () => {
       id: 'maternelle',
       title: 'Maternelle',
       icon: Baby,
-      color: 'from-blue-600 to-indigo-700',
-      bgColor: 'bg-blue-50 dark:bg-blue-900/20',
+      color: 'from-green-600 to-lime-700',
+      bgColor: 'bg-green-50 dark:bg-green-900/20',
       description: 'Éveil et épanouissement de 3 à 6 ans',
       image: 'https://images.pexels.com/photos/8613104/pexels-photo-8613104.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
@@ -85,8 +85,8 @@ const About = () => {
       id: 'primaire',
       title: 'Primaire',
       icon: BookOpen,
-      color: 'from-orange-500 to-red-600',
-      bgColor: 'bg-orange-50 dark:bg-orange-900/20',
+      color: 'from-blue-600 to-indigo-700',
+      bgColor: 'bg-blue-50 dark:bg-blue-900/20',
       description: 'Formation solide des bases fondamentales',
       image: 'https://images.pexels.com/photos/8612969/pexels-photo-8612969.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
@@ -94,8 +94,8 @@ const About = () => {
       id: 'secondaire',
       title: 'Secondaire',
       icon: GraduationCap,
-      color: 'from-purple-600 to-pink-700',
-      bgColor: 'bg-purple-50 dark:bg-purple-900/20',
+      color: 'from-amber-600 to-orange-700',
+      bgColor: 'bg-amber-50 dark:bg-amber-900/20',
       description: 'Préparation aux examens nationaux',
       image: 'https://images.pexels.com/photos/8613074/pexels-photo-8613074.jpeg?auto=compress&cs=tinysrgb&w=800'
     }
@@ -157,7 +157,7 @@ const About = () => {
           </motion.p>
         </motion.div>
 
-        {/* Niveaux d'enseignement - Mobile first grid avec effets néon en dark mode */}
+        {/* Niveaux d'enseignement - Mobile first grid avec effets néon colorés en dark mode */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 lg:mb-16"
           variants={containerVariants}
@@ -177,7 +177,7 @@ const About = () => {
                 transition={{ type: "spring", stiffness: 300 }}
                 onClick={() => setSelectedLevel(level)}
               >
-                <div className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-xl border-2 border-slate-200 dark:border-slate-700 dark:hover:neon-border relative overflow-hidden min-h-[140px] sm:min-h-[160px] lg:min-h-[180px] transition-all duration-300 hover:border-slate-400 dark:hover:border-blue-500 group">
+                <div className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-xl border-2 border-slate-200 dark:border-slate-700 neon-border-light dark:neon-border relative overflow-hidden min-h-[140px] sm:min-h-[160px] lg:min-h-[180px] transition-all duration-300 hover:border-green-400 dark:hover:border-green-500 group">
                   {/* Image de fond */}
                   <div className="absolute inset-0 opacity-5">
                     <img 
@@ -200,8 +200,12 @@ const About = () => {
                     {/* En-tête avec icône et titre */}
                     <div className="flex items-center mb-3 sm:mb-4">
                       <motion.div
-                        className={`w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-lg sm:rounded-xl bg-gradient-to-br ${level.color} shadow-lg flex items-center justify-center mr-3 sm:mr-4`}
-                        whileHover={{ scale: 1.1, rotate: 5, boxShadow: '0 10px 20px rgba(59, 130, 246, 0.3)' }}
+                        className={`w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-lg sm:rounded-xl bg-gradient-to-br ${level.color} shadow-lg flex items-center justify-center mr-3 sm:mr-4 border-2 border-white/20`}
+                        whileHover={{ 
+                          scale: 1.1, 
+                          rotate: 5, 
+                          boxShadow: '0 10px 20px rgba(34, 197, 94, 0.3), 0 0 30px rgba(101, 163, 13, 0.2), 0 0 40px rgba(59, 130, 246, 0.1)' 
+                        }}
                       >
                         <Icon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-white" />
                       </motion.div>
@@ -229,22 +233,29 @@ const About = () => {
           animate={hasIntersected ? "visible" : "hidden"}
         >
           {[
-            { icon: Users, label: 'Élèves', value: '500+', color: 'from-blue-500 to-indigo-600' },
-            { icon: BookOpen, label: 'Professeurs', value: '30+', color: 'from-orange-500 to-red-600' },
-            { icon: Award, label: 'Années', value: '15+', color: 'from-purple-500 to-pink-600' },
-            { icon: Star, label: 'Réussite', value: '95%', color: 'from-green-500 to-emerald-600' }
+            { icon: Users, label: 'Élèves', value: '500+', color: 'from-green-500 to-lime-600' },
+            { icon: BookOpen, label: 'Professeurs', value: '30+', color: 'from-blue-500 to-indigo-600' },
+            { icon: Award, label: 'Années', value: '15+', color: 'from-amber-500 to-orange-600' },
+            { icon: Star, label: 'Réussite', value: '95%', color: 'from-emerald-500 to-teal-600' }
           ].map((stat) => {
             const Icon = stat.icon;
             return (
               <motion.div
                 key={stat.label}
-                className="text-center p-3 sm:p-4 lg:p-6 bg-white dark:bg-gray-800 rounded-lg sm:rounded-xl shadow-lg border-2 border-slate-200 dark:border-slate-700 dark:hover:neon-border hover:border-slate-400 dark:hover:border-blue-500 transition-all duration-300 group"
+                className="text-center p-3 sm:p-4 lg:p-6 bg-white dark:bg-gray-800 rounded-lg sm:rounded-xl shadow-lg border-2 border-slate-200 dark:border-slate-700 neon-border-light dark:neon-border hover:border-green-400 dark:hover:border-green-500 transition-all duration-300 group"
                 variants={itemVariants}
-                whileHover={{ scale: 1.05, y: -3, boxShadow: '0 10px 25px rgba(59, 130, 246, 0.2)' }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -3, 
+                  boxShadow: '0 10px 25px rgba(34, 197, 94, 0.2), 0 0 30px rgba(101, 163, 13, 0.15), 0 0 35px rgba(59, 130, 246, 0.1)' 
+                }}
               >
                 <motion.div
-                  className={`w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br ${stat.color} mb-2 sm:mb-3 shadow-lg mx-auto flex items-center justify-center relative`}
-                  whileHover={{ rotate: 360, boxShadow: '0 8px 16px rgba(59, 130, 246, 0.4)' }}
+                  className={`w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br ${stat.color} mb-2 sm:mb-3 shadow-lg mx-auto flex items-center justify-center relative border-2 border-white/20`}
+                  whileHover={{ 
+                    rotate: 360, 
+                    boxShadow: '0 8px 16px rgba(34, 197, 94, 0.4), 0 0 25px rgba(101, 163, 13, 0.3), 0 0 30px rgba(59, 130, 246, 0.2)' 
+                  }}
                   transition={{ duration: 0.6 }}
                 >
                   <Icon className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
@@ -269,7 +280,7 @@ const About = () => {
         </motion.div>
       </div>
 
-      {/* Modal pour les détails - Mobile responsive avec effets néon */}
+      {/* Modal pour les détails - Mobile responsive avec effets néon colorés */}
       <AnimatePresence>
         {selectedLevel && (
           <motion.div
@@ -280,7 +291,7 @@ const About = () => {
             onClick={() => setSelectedLevel(null)}
           >
             <motion.div
-              className="bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border-2 border-slate-200 dark:border-slate-700 dark:neon-border"
+              className="bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border-2 border-slate-200 dark:border-slate-700 neon-border-light dark:neon-border"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
@@ -289,7 +300,7 @@ const About = () => {
               {/* En-tête de la modal - Mobile responsive */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8">
                 <div className="flex items-center mb-4 sm:mb-0 w-full sm:w-auto">
-                  <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br ${selectedLevel.color} mr-3 sm:mr-4 shadow-xl flex items-center justify-center flex-shrink-0`}>
+                  <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br ${selectedLevel.color} mr-3 sm:mr-4 shadow-xl flex items-center justify-center flex-shrink-0 border-2 border-white/20`}>
                     <selectedLevel.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
                   <div className="flex-1">
@@ -303,8 +314,8 @@ const About = () => {
                 </div>
                 <motion.button
                   onClick={() => setSelectedLevel(null)}
-                  className="w-8 h-8 sm:w-10 sm:h-10 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors self-end sm:self-auto flex-shrink-0"
-                  whileHover={{ scale: 1.1, backgroundColor: 'rgba(59, 130, 246, 0.2)' }}
+                  className="w-8 h-8 sm:w-10 sm:h-10 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors self-end sm:self-auto flex-shrink-0 border-2 border-slate-300 dark:border-slate-600"
+                  whileHover={{ scale: 1.1, backgroundColor: 'rgba(34, 197, 94, 0.2)' }}
                 >
                   <X className="w-4 h-4 sm:w-5 sm:h-5 text-slate-600 dark:text-slate-400" />
                 </motion.button>
@@ -321,7 +332,7 @@ const About = () => {
                     {schoolData.niveaux[selectedLevel.id].classes.map((classe, idx) => (
                       <motion.div
                         key={idx}
-                        className="bg-slate-50 dark:bg-slate-900/20 text-slate-700 dark:text-slate-200 px-3 sm:px-4 py-2 rounded-lg text-center font-semibold border-2 border-slate-200 dark:border-slate-700 dark:hover:neon-border text-sm sm:text-base hover:bg-slate-100 dark:hover:bg-slate-900/30 transition-colors"
+                        className="bg-slate-50 dark:bg-slate-900/20 text-slate-700 dark:text-slate-200 px-3 sm:px-4 py-2 rounded-lg text-center font-semibold border-2 border-slate-200 dark:border-slate-700 neon-border-light dark:neon-border text-sm sm:text-base hover:bg-slate-100 dark:hover:bg-slate-900/30 transition-colors"
                         whileHover={{ scale: 1.05 }}
                       >
                         {classe}
@@ -340,8 +351,11 @@ const About = () => {
                       {schoolData.niveaux[selectedLevel.id].series?.map((serie, idx) => (
                         <motion.div
                           key={idx}
-                          className={`bg-gradient-to-r ${selectedLevel.color} text-white px-3 sm:px-4 py-2 rounded-lg font-bold text-sm sm:text-base hover:shadow-lg transition-all duration-300`}
-                          whileHover={{ scale: 1.05, boxShadow: '0 5px 15px rgba(59, 130, 246, 0.4)' }}
+                          className={`bg-gradient-to-r ${selectedLevel.color} text-white px-3 sm:px-4 py-2 rounded-lg font-bold text-sm sm:text-base hover:shadow-lg transition-all duration-300 border-2 border-white/20`}
+                          whileHover={{ 
+                            scale: 1.05, 
+                            boxShadow: '0 5px 15px rgba(34, 197, 94, 0.4), 0 0 25px rgba(101, 163, 13, 0.3), 0 0 30px rgba(59, 130, 246, 0.2)' 
+                          }}
                         >
                           Série {serie}
                         </motion.div>
@@ -351,7 +365,7 @@ const About = () => {
                 )}
 
                 {/* Pédagogie */}
-                <div className="bg-gradient-to-br from-slate-50 to-gray-50 dark:from-slate-900/20 dark:to-gray-900/20 p-4 sm:p-6 rounded-xl sm:rounded-2xl border-2 border-slate-200 dark:border-slate-700 dark:hover:neon-border">
+                <div className="bg-gradient-to-br from-slate-50 to-gray-50 dark:from-slate-900/20 dark:to-gray-900/20 p-4 sm:p-6 rounded-xl sm:rounded-2xl border-2 border-slate-200 dark:border-slate-700 neon-border-light dark:neon-border">
                   <h3 className="text-lg sm:text-xl font-bold text-slate-800 dark:text-slate-100 mb-3 flex items-center">
                     <Star className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-slate-600" />
                     Notre Pédagogie
@@ -362,14 +376,17 @@ const About = () => {
                 </div>
               </div>
 
-              {/* Bouton d'action - Mobile responsive avec effet néon */}
+              {/* Bouton d'action - Mobile responsive avec effet néon coloré */}
               <div className="mt-6 sm:mt-8 text-center">
                 <motion.a
                   href="https://wa.me/22995963345?text=Bonjour%2C+je+souhaite+inscrire+mon+enfant+à+l'école+CS+Quartier+Latin."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r ${selectedLevel.color} text-white font-bold text-base sm:text-lg rounded-xl sm:rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 w-full sm:w-auto justify-center`}
-                  whileHover={{ scale: 1.05, boxShadow: '0 15px 30px rgba(59, 130, 246, 0.4)' }}
+                  className={`inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r ${selectedLevel.color} text-white font-bold text-base sm:text-lg rounded-xl sm:rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 w-full sm:w-auto justify-center border-2 border-white/20`}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    boxShadow: '0 15px 30px rgba(34, 197, 94, 0.4), 0 0 40px rgba(101, 163, 13, 0.3), 0 0 50px rgba(59, 130, 246, 0.2)' 
+                  }}
                   whileTap={{ scale: 0.95 }}
                 >
                   Inscrire mon enfant en {selectedLevel.title}

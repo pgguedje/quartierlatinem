@@ -111,8 +111,8 @@ const Hero = () => {
         {/* Navigation du carousel - Mobile optimized avec couleurs harmonieuses */}
         <motion.button
           onClick={prevSlide}
-          className="absolute left-2 sm:left-4 lg:left-6 top-1/2 transform -translate-y-1/2 z-30 p-2 sm:p-3 bg-slate-600/30 backdrop-blur-sm rounded-full hover:bg-slate-500/40 transition-all duration-300 border border-slate-400/40"
-          whileHover={{ scale: 1.1, backgroundColor: 'rgba(71, 85, 105, 0.5)', boxShadow: '0 8px 25px rgba(71, 85, 105, 0.3)' }}
+          className="absolute left-2 sm:left-4 lg:left-6 top-1/2 transform -translate-y-1/2 z-30 p-2 sm:p-3 bg-slate-600/30 backdrop-blur-sm rounded-full hover:bg-slate-500/40 transition-all duration-300 border border-slate-400/40 neon-border-light dark:neon-border"
+          whileHover={{ scale: 1.1, backgroundColor: 'rgba(71, 85, 105, 0.5)', boxShadow: '0 8px 25px rgba(34, 197, 94, 0.3)' }}
           whileTap={{ scale: 0.9 }}
         >
           <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-slate-100" />
@@ -120,8 +120,8 @@ const Hero = () => {
         
         <motion.button
           onClick={nextSlide}
-          className="absolute right-2 sm:right-4 lg:right-6 top-1/2 transform -translate-y-1/2 z-30 p-2 sm:p-3 bg-slate-600/30 backdrop-blur-sm rounded-full hover:bg-slate-500/40 transition-all duration-300 border border-slate-400/40"
-          whileHover={{ scale: 1.1, backgroundColor: 'rgba(71, 85, 105, 0.5)', boxShadow: '0 8px 25px rgba(71, 85, 105, 0.3)' }}
+          className="absolute right-2 sm:right-4 lg:right-6 top-1/2 transform -translate-y-1/2 z-30 p-2 sm:p-3 bg-slate-600/30 backdrop-blur-sm rounded-full hover:bg-slate-500/40 transition-all duration-300 border border-slate-400/40 neon-border-light dark:neon-border"
+          whileHover={{ scale: 1.1, backgroundColor: 'rgba(71, 85, 105, 0.5)', boxShadow: '0 8px 25px rgba(34, 197, 94, 0.3)' }}
           whileTap={{ scale: 0.9 }}
         >
           <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-slate-100" />
@@ -135,7 +135,7 @@ const Hero = () => {
               onClick={() => setCurrentSlide(index)}
               className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                 index === currentSlide 
-                  ? 'bg-slate-300 scale-125 shadow-lg shadow-slate-300/50' 
+                  ? 'bg-gradient-to-r from-green-400 via-lime-500 to-blue-500 scale-125 shadow-lg button-glow' 
                   : 'bg-slate-400/60 hover:bg-slate-300/80'
               }`}
               whileHover={{ scale: 1.2 }}
@@ -156,7 +156,7 @@ const Hero = () => {
           className="max-w-5xl mx-auto mb-8 sm:mb-12 lg:mb-16"
           variants={itemVariants}
         >
-          <div className="bg-gradient-to-br from-slate-800/60 to-gray-800/60 backdrop-blur-md rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl border border-slate-400/30">
+          <div className="bg-gradient-to-br from-slate-800/60 to-gray-800/60 backdrop-blur-md rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl border-2 border-slate-400/30 neon-border-light dark:neon-border">
             <motion.p
               className="text-lg sm:text-xl md:text-2xl lg:text-4xl mb-4 sm:mb-6 text-slate-100 font-serif italic leading-tight"
               initial={{ opacity: 0 }}
@@ -178,7 +178,7 @@ const Hero = () => {
           </div>
         </motion.div>
         
-        {/* Boutons d'action - Mobile responsive avec couleurs harmonieuses */}
+        {/* Boutons d'action - Mobile responsive avec couleurs harmonieuses et effets néon */}
         <motion.div
           className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center max-w-2xl mx-auto"
           variants={itemVariants}
@@ -187,8 +187,12 @@ const Hero = () => {
             href="https://wa.me/22995963345?text=Bonjour%2C+je+souhaite+inscrire+mon+enfant+à+l'école+CS+Quartier+Latin."
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-5 bg-gradient-to-r from-slate-700 to-gray-800 hover:from-slate-600 hover:to-gray-700 text-white font-bold text-base sm:text-lg lg:text-xl rounded-xl sm:rounded-2xl shadow-2xl border border-slate-400/40"
-            whileHover={{ scale: 1.05, y: -3, boxShadow: '0 20px 40px rgba(71, 85, 105, 0.4)' }}
+            className="w-full sm:w-auto px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-5 btn-primary text-white font-bold text-base sm:text-lg lg:text-xl rounded-xl sm:rounded-2xl shadow-2xl border-2 border-white/20"
+            whileHover={{ 
+              scale: 1.05, 
+              y: -3, 
+              boxShadow: '0 20px 40px rgba(34, 197, 94, 0.4), 0 0 30px rgba(101, 163, 13, 0.3), 0 0 40px rgba(59, 130, 246, 0.2)' 
+            }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
@@ -197,8 +201,12 @@ const Hero = () => {
           
           <motion.a
             href="#about"
-            className="w-full sm:w-auto px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-5 bg-gradient-to-r from-slate-100/15 to-gray-100/15 hover:from-slate-100/25 hover:to-gray-100/25 backdrop-blur-sm text-white font-bold text-base sm:text-lg lg:text-xl rounded-xl sm:rounded-2xl shadow-2xl border border-slate-300/50"
-            whileHover={{ scale: 1.05, y: -3, borderColor: 'rgba(203, 213, 225, 0.7)' }}
+            className="w-full sm:w-auto px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-5 btn-secondary backdrop-blur-sm text-white font-bold text-base sm:text-lg lg:text-xl rounded-xl sm:rounded-2xl shadow-2xl relative overflow-hidden"
+            whileHover={{ 
+              scale: 1.05, 
+              y: -3,
+              boxShadow: '0 15px 35px rgba(34, 197, 94, 0.3), 0 0 25px rgba(101, 163, 13, 0.25), 0 0 35px rgba(59, 130, 246, 0.2)'
+            }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300 }}
           >

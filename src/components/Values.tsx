@@ -12,24 +12,24 @@ const Values = () => {
       title: "VOULOIR",
       subtitle: "La motivation",
       description: "Cultiver la curiosité et l'envie d'apprendre",
-      color: "from-blue-600 to-indigo-700",
-      bgColor: "bg-blue-50 dark:bg-blue-900/20"
+      color: "from-green-600 to-lime-700",
+      bgColor: "bg-green-50 dark:bg-green-900/20"
     },
     {
       icon: Zap,
       title: "POUVOIR",
       subtitle: "Les moyens",
       description: "Fournir tous les outils pour réussir",
-      color: "from-orange-500 to-red-600",
-      bgColor: "bg-orange-50 dark:bg-orange-900/20"
+      color: "from-blue-600 to-indigo-700",
+      bgColor: "bg-blue-50 dark:bg-blue-900/20"
     },
     {
       icon: Award,
       title: "RÉUSSIR",
       subtitle: "L'accomplissement",
       description: "Atteindre l'excellence académique et humaine",
-      color: "from-purple-600 to-pink-700",
-      bgColor: "bg-purple-50 dark:bg-purple-900/20"
+      color: "from-amber-600 to-orange-700",
+      bgColor: "bg-amber-50 dark:bg-amber-900/20"
     }
   ];
 
@@ -91,7 +91,7 @@ const Values = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Grille des valeurs - Mobile first responsive avec motifs scolaires et effets néon */}
+        {/* Grille des valeurs - Mobile first responsive avec motifs scolaires et effets néon colorés */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 lg:mb-16 max-w-6xl mx-auto"
           variants={containerVariants}
@@ -109,7 +109,7 @@ const Values = () => {
                 whileHover={{ y: -5, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-xl border-2 border-slate-200 dark:border-slate-700 dark:hover:neon-border relative overflow-hidden group-hover:shadow-2xl transition-all duration-500 h-full min-h-[200px] sm:min-h-[220px] lg:min-h-[240px] hover:border-slate-400 dark:hover:border-blue-500">
+                <div className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-xl border-2 border-slate-200 dark:border-slate-700 neon-border-light dark:neon-border relative overflow-hidden group-hover:shadow-2xl transition-all duration-500 h-full min-h-[200px] sm:min-h-[220px] lg:min-h-[240px] hover:border-green-400 dark:hover:border-green-500">
                   {/* Motifs scolaires dans chaque carte */}
                   <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
                     <motion.div
@@ -129,10 +129,14 @@ const Values = () => {
                   </div>
                   
                   <div className="relative z-10 text-center flex flex-col h-full">
-                    {/* Icône avec motifs au hover */}
+                    {/* Icône avec motifs au hover et couleurs harmonieuses */}
                     <motion.div
-                      className={`inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br ${value.color} mb-3 sm:mb-4 shadow-lg mx-auto relative group`}
-                      whileHover={{ scale: 1.1, rotate: 5, boxShadow: '0 10px 20px rgba(59, 130, 246, 0.3)' }}
+                      className={`inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br ${value.color} mb-3 sm:mb-4 shadow-lg mx-auto relative group border-2 border-white/20`}
+                      whileHover={{ 
+                        scale: 1.1, 
+                        rotate: 5, 
+                        boxShadow: '0 10px 20px rgba(34, 197, 94, 0.3), 0 0 30px rgba(101, 163, 13, 0.2), 0 0 40px rgba(59, 130, 246, 0.1)' 
+                      }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
                       <Icon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" />
@@ -167,7 +171,7 @@ const Values = () => {
           })}
         </motion.div>
 
-        {/* Section engagement - Mobile responsive avec motifs scolaires et effets néon */}
+        {/* Section engagement - Mobile responsive avec motifs scolaires et effets néon colorés */}
         <motion.div
           className="text-center"
           variants={containerVariants}
@@ -175,9 +179,9 @@ const Values = () => {
           animate={hasIntersected ? "visible" : "hidden"}
         >
           <motion.div
-            className="bg-gradient-to-br from-slate-100 to-gray-100 dark:from-slate-900/30 dark:to-gray-900/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl border-2 border-slate-200 dark:border-slate-700 dark:hover:neon-border max-w-5xl mx-auto relative overflow-hidden hover:border-slate-400 dark:hover:border-blue-500 transition-all duration-300 group"
+            className="bg-gradient-to-br from-slate-100 to-gray-100 dark:from-slate-900/30 dark:to-gray-900/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl border-2 border-slate-200 dark:border-slate-700 neon-border-light dark:neon-border max-w-5xl mx-auto relative overflow-hidden hover:border-green-400 dark:hover:border-green-500 transition-all duration-300 group"
             variants={itemVariants}
-            whileHover={{ scale: 1.01, boxShadow: '0 20px 40px rgba(59, 130, 246, 0.2)' }}
+            whileHover={{ scale: 1.01, boxShadow: '0 20px 40px rgba(34, 197, 94, 0.2), 0 0 50px rgba(101, 163, 13, 0.15), 0 0 60px rgba(59, 130, 246, 0.1)' }}
           >
             {/* Motifs décoratifs scolaires avec animations */}
             <motion.div
@@ -196,7 +200,7 @@ const Values = () => {
                 className="flex items-center justify-center mb-4 sm:mb-6 group"
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-600 to-purple-700 rounded-full flex items-center justify-center shadow-xl relative">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-green-600 via-blue-600 to-amber-600 rounded-full flex items-center justify-center shadow-xl relative border-2 border-white/20">
                   <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   {/* Motif scolaire au hover du cœur */}
                   <motion.div
@@ -209,7 +213,7 @@ const Values = () => {
                 </div>
               </motion.div>
               
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-4 sm:mb-6">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-green-600 via-blue-600 to-amber-600 bg-clip-text text-transparent mb-4 sm:mb-6">
                 Notre Engagement
               </h3>
               
@@ -220,21 +224,28 @@ const Values = () => {
               {/* Grille des qualités - Mobile responsive avec motifs scolaires et effets colorés */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
                 {[
-                  { icon: Star, title: "Excellence", desc: "Standards élevés", color: "from-blue-500 to-indigo-600" },
-                  { icon: Heart, title: "Bienveillance", desc: "Accompagnement humain", color: "from-orange-500 to-red-600" },
-                  { icon: Target, title: "Réussite", desc: "Résultats exceptionnels", color: "from-purple-500 to-pink-600" }
+                  { icon: Star, title: "Excellence", desc: "Standards élevés", color: "from-green-500 to-lime-600" },
+                  { icon: Heart, title: "Bienveillance", desc: "Accompagnement humain", color: "from-blue-500 to-indigo-600" },
+                  { icon: Target, title: "Réussite", desc: "Résultats exceptionnels", color: "from-amber-500 to-orange-600" }
                 ].map((item, index) => {
                   const ItemIcon = item.icon;
                   return (
                     <motion.div
                       key={item.title}
-                      className="p-4 sm:p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg border-2 border-slate-200 dark:border-slate-700 dark:hover:neon-border hover:border-slate-400 dark:hover:border-blue-500 transition-all duration-300 group relative"
-                      whileHover={{ y: -3, scale: 1.02, boxShadow: '0 10px 25px rgba(59, 130, 246, 0.2)' }}
+                      className="p-4 sm:p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg border-2 border-slate-200 dark:border-slate-700 neon-border-light dark:neon-border hover:border-green-400 dark:hover:border-green-500 transition-all duration-300 group relative"
+                      whileHover={{ 
+                        y: -3, 
+                        scale: 1.02, 
+                        boxShadow: '0 10px 25px rgba(34, 197, 94, 0.2), 0 0 30px rgba(101, 163, 13, 0.15), 0 0 35px rgba(59, 130, 246, 0.1)' 
+                      }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
                       <motion.div
-                        className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br ${item.color} rounded-xl flex items-center justify-center mx-auto mb-3 shadow-lg relative`}
-                        whileHover={{ rotate: 360, boxShadow: '0 8px 16px rgba(59, 130, 246, 0.4)' }}
+                        className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br ${item.color} rounded-xl flex items-center justify-center mx-auto mb-3 shadow-lg relative border-2 border-white/20`}
+                        whileHover={{ 
+                          rotate: 360, 
+                          boxShadow: '0 8px 16px rgba(34, 197, 94, 0.4), 0 0 25px rgba(101, 163, 13, 0.3), 0 0 30px rgba(59, 130, 246, 0.2)' 
+                        }}
                         transition={{ duration: 0.6 }}
                       >
                         <ItemIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
@@ -272,8 +283,12 @@ const Values = () => {
                   href="https://wa.me/22995963345?text=Bonjour%2C+je+souhaite+inscrire+mon+enfant+à+l'école+CS+Quartier+Latin."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:flex-1 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-purple-700 hover:from-blue-500 hover:to-purple-600 text-white font-bold text-base sm:text-lg rounded-xl shadow-xl text-center transition-all duration-300 relative group"
-                  whileHover={{ scale: 1.05, y: -3, boxShadow: '0 15px 30px rgba(59, 130, 246, 0.4)' }}
+                  className="w-full sm:flex-1 px-6 sm:px-8 py-3 sm:py-4 btn-primary text-white font-bold text-base sm:text-lg rounded-xl shadow-xl text-center transition-all duration-300 relative group border-2 border-white/20"
+                  whileHover={{ 
+                    scale: 1.05, 
+                    y: -3, 
+                    boxShadow: '0 15px 30px rgba(34, 197, 94, 0.4), 0 0 40px rgba(101, 163, 13, 0.3), 0 0 50px rgba(59, 130, 246, 0.2)' 
+                  }}
                   whileTap={{ scale: 0.95 }}
                 >
                   Inscrivez-vous
@@ -295,8 +310,12 @@ const Values = () => {
                 </motion.a>
                 <motion.a
                   href="#about"
-                  className="w-full sm:flex-1 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-slate-100 to-gray-100 hover:from-slate-200 hover:to-gray-200 dark:from-slate-800/30 dark:to-gray-800/30 dark:hover:from-slate-700/40 dark:hover:to-gray-700/40 backdrop-blur-sm text-slate-700 dark:text-slate-200 font-bold text-base sm:text-lg rounded-xl shadow-xl border-2 border-slate-300 dark:border-slate-600 dark:hover:neon-border text-center transition-all duration-300 relative group"
-                  whileHover={{ scale: 1.05, y: -3, borderColor: 'rgba(59, 130, 246, 0.6)' }}
+                  className="w-full sm:flex-1 px-6 sm:px-8 py-3 sm:py-4 btn-secondary backdrop-blur-sm text-slate-700 dark:text-slate-200 font-bold text-base sm:text-lg rounded-xl shadow-xl text-center transition-all duration-300 relative group overflow-hidden"
+                  whileHover={{ 
+                    scale: 1.05, 
+                    y: -3,
+                    boxShadow: '0 12px 28px rgba(34, 197, 94, 0.3), 0 0 35px rgba(101, 163, 13, 0.25), 0 0 45px rgba(59, 130, 246, 0.2)'
+                  }}
                   whileTap={{ scale: 0.95 }}
                 >
                   En savoir plus
@@ -345,7 +364,7 @@ const Values = () => {
           animate={hasIntersected ? "visible" : "hidden"}
         >
           <motion.blockquote
-            className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-serif bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent italic mb-4 px-4 relative"
+            className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-serif bg-gradient-to-r from-green-600 via-blue-600 to-amber-600 bg-clip-text text-transparent italic mb-4 px-4 relative"
             whileHover={{ scale: 1.02 }}
           >
             "L'éducation est l'arme la plus puissante pour changer le monde"
