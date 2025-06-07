@@ -337,7 +337,7 @@ const About = () => {
                       Séries proposées:
                     </h3>
                     <div className="flex flex-wrap gap-3">
-                      {schoolData.niveaux[selectedLevel.id].series.map((serie, idx) => (
+                      {schoolData.niveaux[selectedLevel.id].series?.map((serie, idx) => (
                         <motion.div
                           key={idx}
                           className={`bg-gradient-to-r ${selectedLevel.color} text-white px-3 sm:px-4 py-2 rounded-lg font-bold text-sm sm:text-base hover:shadow-lg transition-all duration-300`}

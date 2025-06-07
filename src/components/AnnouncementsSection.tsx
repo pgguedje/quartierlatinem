@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { Megaphone, Calendar, Users, AlertTriangle, ChevronLeft, ChevronRight, School, BookOpen, Pencil } from 'lucide-react';
@@ -24,7 +24,7 @@ const AnnouncementsSection = () => {
     }
   }, []);
 
-  const getTypeIcon = (type) => {
+  const getTypeIcon = (type: 'excursion' | 'reunion' | 'fermeture' | 'evenement' | string) => {
     switch (type) {
       case 'excursion':
         return { icon: Users, color: 'text-slate-600', bg: 'bg-slate-100 dark:bg-slate-900/20' };
@@ -39,7 +39,7 @@ const AnnouncementsSection = () => {
     }
   };
 
-  const formatDate = (dateString) => {
+  const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('fr-FR', {
       year: 'numeric',
       month: 'long',
@@ -224,7 +224,7 @@ const AnnouncementsSection = () => {
                 exit={{ opacity: 0, x: -100 }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
               >
-                {announcements.slice(currentSlide * 2, currentSlide * 2 + 2).map((announcement, index) => {
+                {announcements.slice(currentSlide * 2, currentSlide * 2 + 2).map((announcement: any, index) => {
                   const typeInfo = getTypeIcon(announcement.type);
                   const Icon = typeInfo.icon;
                   
