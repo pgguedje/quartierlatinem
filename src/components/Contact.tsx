@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
-import { Phone, Mail, MapPin, Clock, MessageCircle, Facebook, Instagram, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, MessageCircle, Facebook, Instagram, Send, School, BookOpen, Users, Calculator } from 'lucide-react';
 
 const Contact = () => {
   const { ref, hasIntersected } = useIntersectionObserver();
@@ -47,41 +47,40 @@ const Contact = () => {
 
   return (
     <section id="contact" ref={ref} className="py-20 bg-gradient-to-br from-amber-900 via-orange-900 to-red-900 text-white relative overflow-hidden">
-      {/* Motifs africains traditionnels animés */}
+      {/* Motifs scolaires traditionnels animés */}
       <div className="absolute inset-0">
-        {[...Array(12)].map((_, i) => (
+        {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className={`absolute border-4 ${
-              i % 3 === 0 ? 'border-amber-400/30' : 
-              i % 3 === 1 ? 'border-orange-400/30' : 
-              'border-red-400/30'
-            } ${
-              i % 2 === 0 ? 'rounded-full' : 'transform rotate-45'
-            }`}
+            className="absolute"
             style={{
-              width: `${80 + i * 30}px`,
-              height: `${80 + i * 30}px`,
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
             }}
             animate={{
               scale: [1, 1.4, 1],
               rotate: [0, 360],
-              opacity: [0.2, 0.6, 0.2]
+              opacity: [0.1, 0.4, 0.1]
             }}
             transition={{
               duration: 12 + i * 2,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: i * 0.8
+              delay: i * 0.6
             }}
-          />
+          >
+            {i % 6 === 0 && <School className="w-8 h-8 text-amber-400/30" />}
+            {i % 6 === 1 && <BookOpen className="w-6 h-6 text-orange-400/30" />}
+            {i % 6 === 2 && <Users className="w-7 h-7 text-red-400/30" />}
+            {i % 6 === 3 && <Phone className="w-5 h-5 text-amber-300/30" />}
+            {i % 6 === 4 && <Calculator className="w-6 h-6 text-orange-300/30" />}
+            {i % 6 === 5 && <Mail className="w-5 h-5 text-red-300/30" />}
+          </motion.div>
         ))}
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* En-tête avec couleurs béninoises */}
+        {/* En-tête avec couleurs béninoises et motifs */}
         <motion.div
           className="text-center mb-16"
           variants={containerVariants}
@@ -89,10 +88,25 @@ const Contact = () => {
           animate={hasIntersected ? "visible" : "hidden"}
         >
           <motion.h2
-            className="text-5xl lg:text-7xl font-bold bg-gradient-to-r from-amber-200 via-orange-200 to-red-200 bg-clip-text text-transparent mb-8"
+            className="text-5xl lg:text-7xl font-bold bg-gradient-to-r from-amber-200 via-orange-200 to-red-200 bg-clip-text text-transparent mb-8 relative"
             variants={itemVariants}
           >
             📞 Contactez-Nous
+            {/* Motifs scolaires autour du titre */}
+            <motion.div
+              className="absolute -top-4 -left-4"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+            >
+              <School className="w-8 h-8 text-amber-300/50" />
+            </motion.div>
+            <motion.div
+              className="absolute -top-4 -right-4"
+              animate={{ scale: [1, 1.3, 1] }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              <BookOpen className="w-6 h-6 text-orange-300/50" />
+            </motion.div>
           </motion.h2>
           <motion.div
             className="w-32 h-2 bg-gradient-to-r from-amber-300 via-orange-300 to-red-300 mx-auto mb-8 rounded-full"
@@ -113,11 +127,18 @@ const Contact = () => {
           initial="hidden"
           animate={hasIntersected ? "visible" : "hidden"}
         >
-          {/* Informations de contact avec couleurs traditionnelles */}
+          {/* Informations de contact avec couleurs traditionnelles et effets hover */}
           <motion.div className="flex-shrink-0 w-full max-w-md" variants={itemVariants}>
             <div>
-              <h3 className="text-3xl font-bold text-amber-200 mb-8 text-center">
+              <h3 className="text-3xl font-bold text-amber-200 mb-8 text-center flex items-center justify-center">
                 📋 Informations de Contact
+                <motion.div
+                  className="ml-3"
+                  animate={{ rotate: [0, 15, -15, 0] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                >
+                  <Users className="w-6 h-6 text-amber-300/70" />
+                </motion.div>
               </h3>
               
               <div className="space-y-6">
@@ -130,15 +151,23 @@ const Contact = () => {
                   return (
                     <motion.div
                       key={item.title}
-                      className="flex items-start group justify-center"
+                      className="flex items-start group justify-center relative"
                       whileHover={{ x: 10 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
                       <motion.div
-                        className={`w-16 h-16 bg-gradient-to-br ${item.color} rounded-2xl flex items-center justify-center mr-6 shadow-2xl border-4 border-white`}
-                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        className={`w-16 h-16 bg-gradient-to-br ${item.color} rounded-2xl flex items-center justify-center mr-6 shadow-2xl border-4 border-white relative`}
+                        whileHover={{ scale: 1.1, rotate: 5, boxShadow: '0 15px 30px rgba(245, 158, 11, 0.5)' }}
                       >
                         <Icon className="w-8 h-8 text-white" />
+                        {/* Motif scolaire au hover */}
+                        <motion.div
+                          className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                        >
+                          <School className="w-4 h-4 text-white/80" />
+                        </motion.div>
                       </motion.div>
                       <div className="text-center">
                         <h4 className="font-bold text-amber-200 mb-2 text-lg">
@@ -148,20 +177,36 @@ const Contact = () => {
                           {item.content}
                         </p>
                       </div>
+                      {/* Motif scolaire flottant */}
+                      <motion.div
+                        className="absolute -top-2 -left-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                        animate={{ y: [0, -10, 0] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
+                        <BookOpen className="w-4 h-4 text-amber-300/60" />
+                      </motion.div>
                     </motion.div>
                   );
                 })}
 
                 <motion.div
-                  className="flex items-start group justify-center"
+                  className="flex items-start group justify-center relative"
                   whileHover={{ x: 10 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <motion.div
-                    className="w-16 h-16 bg-gradient-to-br from-amber-600 to-red-600 rounded-2xl flex items-center justify-center mr-6 shadow-2xl border-4 border-white"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="w-16 h-16 bg-gradient-to-br from-amber-600 to-red-600 rounded-2xl flex items-center justify-center mr-6 shadow-2xl border-4 border-white relative"
+                    whileHover={{ scale: 1.1, rotate: 5, boxShadow: '0 15px 30px rgba(245, 158, 11, 0.5)' }}
                   >
                     <Clock className="w-8 h-8 text-white" />
+                    {/* Motif scolaire au hover */}
+                    <motion.div
+                      className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                      animate={{ rotate: -360 }}
+                      transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                    >
+                      <Calculator className="w-4 h-4 text-white/80" />
+                    </motion.div>
                   </motion.div>
                   <div className="text-center">
                     <h4 className="font-bold text-amber-200 mb-2 text-lg">
@@ -178,10 +223,17 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Actions rapides avec couleurs béninoises */}
+            {/* Actions rapides avec couleurs béninoises et motifs */}
             <motion.div className="space-y-6 mt-8" variants={itemVariants}>
-              <h4 className="text-2xl font-bold text-amber-200 text-center">
+              <h4 className="text-2xl font-bold text-amber-200 text-center flex items-center justify-center">
                 ⚡ Actions Rapides
+                <motion.div
+                  className="ml-3"
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <Users className="w-5 h-5 text-amber-300/70" />
+                </motion.div>
               </h4>
               
               <div className="flex justify-center">
@@ -189,8 +241,8 @@ const Contact = () => {
                   href="https://wa.me/22995963345?text=Bonjour%2C+je+souhaite+inscrire+mon+enfant+à+l'école+CS+Quartier+Latin."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 hover:from-amber-400 hover:via-orange-400 hover:to-red-400 p-6 rounded-2xl transition-all duration-300 shadow-2xl group max-w-md border-4 border-white"
-                  whileHover={{ scale: 1.02, y: -5 }}
+                  className="flex items-center bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 hover:from-amber-400 hover:via-orange-400 hover:to-red-400 p-6 rounded-2xl transition-all duration-300 shadow-2xl group max-w-md border-4 border-white relative"
+                  whileHover={{ scale: 1.02, y: -5, boxShadow: '0 20px 40px rgba(245, 158, 11, 0.4)' }}
                   whileTap={{ scale: 0.98 }}
                 >
                   <MessageCircle className="w-8 h-8 mr-4 group-hover:animate-bounce" />
@@ -199,6 +251,21 @@ const Contact = () => {
                     <span className="text-amber-100 text-sm">Réponse immédiate garantie 🇧🇯</span>
                   </div>
                   <Send className="w-6 h-6 ml-4 group-hover:translate-x-2 transition-transform" />
+                  {/* Motifs scolaires au hover */}
+                  <motion.div
+                    className="absolute -top-3 -left-3 opacity-0 group-hover:opacity-100 transition-opacity"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                  >
+                    <School className="w-5 h-5 text-white/70" />
+                  </motion.div>
+                  <motion.div
+                    className="absolute -bottom-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity"
+                    animate={{ y: [0, -5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    <BookOpen className="w-4 h-4 text-white/70" />
+                  </motion.div>
                 </motion.a>
               </div>
 
@@ -212,12 +279,20 @@ const Contact = () => {
                     <motion.a
                       key={social.label}
                       href="#"
-                      className={`flex items-center justify-center bg-gradient-to-r ${social.color} p-4 rounded-xl transition-all duration-300 shadow-xl group w-32 border-2 border-white`}
-                      whileHover={{ scale: 1.05, y: -3 }}
+                      className={`flex items-center justify-center bg-gradient-to-r ${social.color} p-4 rounded-xl transition-all duration-300 shadow-xl group w-32 border-2 border-white relative`}
+                      whileHover={{ scale: 1.05, y: -3, boxShadow: '0 10px 25px rgba(245, 158, 11, 0.3)' }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <Icon className="w-6 h-6 mr-2 group-hover:animate-pulse" />
                       <span className="font-semibold text-sm">{social.label}</span>
+                      {/* Motif scolaire au hover */}
+                      <motion.div
+                        className="absolute -top-1 -right-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1.5 }}
+                      >
+                        <Users className="w-3 h-3 text-white/80" />
+                      </motion.div>
                     </motion.a>
                   );
                 })}
@@ -225,15 +300,22 @@ const Contact = () => {
             </motion.div>
           </motion.div>
 
-          {/* SECTION LOCALISATION AVEC IMAGES BÉNINOISES */}
+          {/* SECTION LOCALISATION AVEC IMAGES BÉNINOISES et motifs */}
           <motion.div className="flex-shrink-0 w-full max-w-md" variants={itemVariants}>
-            <h3 className="text-3xl font-bold text-amber-200 mb-8 text-center">
+            <h3 className="text-3xl font-bold text-amber-200 mb-8 text-center flex items-center justify-center">
               🗺️ Notre Localisation Béninoise
+              <motion.div
+                className="ml-3"
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+              >
+                <MapPin className="w-6 h-6 text-amber-300/70" />
+              </motion.div>
             </h3>
             
-            {/* Image traditionnelle du Bénin */}
+            {/* Image traditionnelle du Bénin avec motifs */}
             <motion.div
-              className="relative overflow-hidden rounded-3xl shadow-2xl mb-8 border-4 border-amber-400"
+              className="relative overflow-hidden rounded-3xl shadow-2xl mb-8 border-4 border-amber-400 group"
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -247,14 +329,30 @@ const Contact = () => {
                 <h4 className="text-2xl font-bold mb-2">🇧🇯 Bénin - Quartier Latin</h4>
                 <p className="text-amber-200">Terre d'excellence africaine 🌟</p>
               </div>
-              {/* Motifs décoratifs traditionnels */}
-              <div className="absolute top-4 right-4 w-12 h-12 border-2 border-amber-300 rounded-full"></div>
-              <div className="absolute top-4 left-4 w-8 h-8 border-2 border-orange-300 transform rotate-45"></div>
+              {/* Motifs décoratifs traditionnels avec animations */}
+              <motion.div
+                className="absolute top-4 right-4 w-12 h-12 border-2 border-amber-300 rounded-full"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              />
+              <motion.div
+                className="absolute top-4 left-4 w-8 h-8 border-2 border-orange-300 transform rotate-45"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              />
+              {/* Motifs scolaires au hover */}
+              <motion.div
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+              >
+                <School className="w-8 h-8 text-white/50" />
+              </motion.div>
             </motion.div>
 
-            {/* Carte interactive avec bordure traditionnelle */}
+            {/* Carte interactive avec bordure traditionnelle et motifs */}
             <motion.div
-              className="relative overflow-hidden rounded-3xl shadow-2xl mb-8 border-4 border-orange-400"
+              className="relative overflow-hidden rounded-3xl shadow-2xl mb-8 border-4 border-orange-400 group"
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -270,14 +368,29 @@ const Contact = () => {
               ></iframe>
               
               <div className="absolute inset-0 bg-gradient-to-t from-orange-900/20 to-transparent pointer-events-none rounded-3xl"></div>
+              {/* Motifs scolaires au hover de la carte */}
+              <motion.div
+                className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+              >
+                <BookOpen className="w-6 h-6 text-orange-600/70" />
+              </motion.div>
             </motion.div>
 
             <motion.div
-              className="bg-gradient-to-br from-amber-800/40 via-orange-800/40 to-red-800/40 backdrop-blur-sm rounded-2xl p-6 border-4 border-red-400 text-center"
+              className="bg-gradient-to-br from-amber-800/40 via-orange-800/40 to-red-800/40 backdrop-blur-sm rounded-2xl p-6 border-4 border-red-400 text-center relative group"
               whileHover={{ scale: 1.02 }}
             >
-              <h4 className="font-bold text-amber-200 mb-4 text-xl">
+              <h4 className="font-bold text-amber-200 mb-4 text-xl flex items-center justify-center">
                 🧭 Comment nous trouver ?
+                <motion.div
+                  className="ml-2"
+                  animate={{ rotate: [0, 15, -15, 0] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                >
+                  <Calculator className="w-5 h-5 text-amber-300/70" />
+                </motion.div>
               </h4>
               <p className="text-amber-100 leading-relaxed mb-4">
                 <strong>📍 Adresse complète :</strong> Zogbadjè, Abomey-Calavi, Bénin
@@ -289,30 +402,60 @@ const Contact = () => {
               
               <div className="space-y-2">
                 <motion.div
-                  className="flex items-center justify-center text-amber-200"
+                  className="flex items-center justify-center text-amber-200 group"
                   whileHover={{ x: 5 }}
                 >
                   <MapPin className="w-5 h-5 mr-2" />
                   <span className="font-semibold">
                     🚌 Proche des arrêts de transport public
                   </span>
+                  <motion.div
+                    className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 2 }}
+                  >
+                    <Users className="w-3 h-3 text-amber-300/70" />
+                  </motion.div>
                 </motion.div>
                 
                 <motion.div
-                  className="flex items-center justify-center text-amber-200"
+                  className="flex items-center justify-center text-amber-200 group"
                   whileHover={{ x: 5 }}
                 >
                   <Clock className="w-5 h-5 mr-2" />
                   <span className="font-semibold">
                     📅 Ouvert du lundi au samedi
                   </span>
+                  <motion.div
+                    className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    <School className="w-3 h-3 text-amber-300/70" />
+                  </motion.div>
                 </motion.div>
               </div>
+              
+              {/* Motifs scolaires flottants dans la section */}
+              <motion.div
+                className="absolute -top-2 -left-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                <BookOpen className="w-4 h-4 text-amber-300/60" />
+              </motion.div>
+              <motion.div
+                className="absolute -bottom-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+              >
+                <Calculator className="w-4 h-4 text-orange-300/60" />
+              </motion.div>
             </motion.div>
           </motion.div>
         </motion.div>
 
-        {/* Call to action final avec couleurs béninoises */}
+        {/* Call to action final avec couleurs béninoises et motifs */}
         <motion.div
           className="text-center mt-16"
           variants={itemVariants}
@@ -320,16 +463,31 @@ const Contact = () => {
           animate={hasIntersected ? "visible" : "hidden"}
         >
           <motion.div
-            className="bg-gradient-to-br from-amber-800/50 via-orange-800/50 to-red-800/50 backdrop-blur-sm rounded-3xl p-12 border-4 border-amber-400 max-w-4xl mx-auto relative overflow-hidden"
+            className="bg-gradient-to-br from-amber-800/50 via-orange-800/50 to-red-800/50 backdrop-blur-sm rounded-3xl p-12 border-4 border-amber-400 max-w-4xl mx-auto relative overflow-hidden group"
             whileHover={{ scale: 1.02 }}
           >
-            {/* Motifs décoratifs traditionnels */}
-            <div className="absolute top-8 right-8 w-20 h-20 border-3 border-orange-400/40 rounded-full"></div>
-            <div className="absolute bottom-8 left-8 w-16 h-16 border-3 border-red-400/40 transform rotate-45"></div>
+            {/* Motifs décoratifs traditionnels avec animations */}
+            <motion.div
+              className="absolute top-8 right-8 w-20 h-20 border-3 border-orange-400/40 rounded-full"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+            />
+            <motion.div
+              className="absolute bottom-8 left-8 w-16 h-16 border-3 border-red-400/40 transform rotate-45"
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ duration: 4, repeat: Infinity }}
+            />
             
             <div className="relative z-10">
-              <h3 className="text-4xl font-bold text-amber-200 mb-6">
+              <h3 className="text-4xl font-bold text-amber-200 mb-6 flex items-center justify-center">
                 🇧🇯 Prêt à rejoindre notre famille béninoise ?
+                <motion.div
+                  className="ml-4"
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+                >
+                  <School className="w-8 h-8 text-amber-300/70" />
+                </motion.div>
               </h3>
               <p className="text-xl text-amber-100 mb-8 leading-relaxed">
                 Donnez à votre enfant les meilleures chances de réussir dans un environnement 
@@ -341,15 +499,46 @@ const Contact = () => {
                 href="https://wa.me/22995963345?text=Bonjour%2C+je+souhaite+inscrire+mon+enfant+à+l'école+CS+Quartier+Latin."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-12 py-6 bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 hover:from-amber-400 hover:via-orange-400 hover:to-red-400 text-white font-bold text-xl rounded-2xl shadow-2xl border-4 border-white"
-                whileHover={{ scale: 1.05, y: -5 }}
+                className="inline-flex items-center px-12 py-6 bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 hover:from-amber-400 hover:via-orange-400 hover:to-red-400 text-white font-bold text-xl rounded-2xl shadow-2xl border-4 border-white relative group"
+                whileHover={{ scale: 1.05, y: -5, boxShadow: '0 25px 50px rgba(245, 158, 11, 0.4)' }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Phone className="w-6 h-6 mr-3" />
                 📞 Contactez-nous Maintenant
                 <Send className="w-6 h-6 ml-3" />
+                {/* Motifs scolaires au hover du bouton */}
+                <motion.div
+                  className="absolute -top-3 -left-3 opacity-0 group-hover:opacity-100 transition-opacity"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                >
+                  <BookOpen className="w-5 h-5 text-white/80" />
+                </motion.div>
+                <motion.div
+                  className="absolute -bottom-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity"
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <Users className="w-4 h-4 text-white/80" />
+                </motion.div>
               </motion.a>
             </div>
+            
+            {/* Motifs scolaires flottants dans le CTA */}
+            <motion.div
+              className="absolute top-1/4 left-1/4 opacity-0 group-hover:opacity-100 transition-opacity"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+            >
+              <Calculator className="w-6 h-6 text-amber-300/40" />
+            </motion.div>
+            <motion.div
+              className="absolute bottom-1/4 right-1/4 opacity-0 group-hover:opacity-100 transition-opacity"
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              <School className="w-7 h-7 text-orange-300/40" />
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>

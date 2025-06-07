@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sun, Moon, GraduationCap } from 'lucide-react';
+import { Menu, X, Sun, Moon, GraduationCap, BookOpen, School } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 const Navigation = () => {
@@ -38,7 +38,7 @@ const Navigation = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
           
-          {/* Logo - Mobile optimized */}
+          {/* Logo - Mobile optimized avec motifs scolaires */}
           <motion.div 
             className="flex items-center space-x-2 sm:space-x-3"
             whileHover={{ scale: 1.05 }}
@@ -50,18 +50,25 @@ const Navigation = () => {
                 alt="Logo CS Quartier Latin EM" 
                 className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 rounded-lg sm:rounded-xl object-cover shadow-lg"
               />
-              {/* Motif subtil autour du logo */}
+              {/* Motifs scolaires autour du logo */}
               <div className="absolute -inset-1 sm:-inset-2 border border-slate-300/30 rounded-full animate-pulse"></div>
+              <motion.div
+                className="absolute -top-1 -right-1"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              >
+                <School className="w-3 h-3 sm:w-4 sm:h-4 text-slate-600/50" />
+              </motion.div>
             </div>
             <div className="hidden sm:block">
               <h1 className="text-base sm:text-lg lg:text-xl font-bold bg-gradient-to-r from-slate-700 to-gray-700 bg-clip-text text-transparent">
                 CS Quartier Latin EM
               </h1>
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-medium">Excellence Africaine</p>
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-medium">Vouloir Pouvoir Réussir</p>
             </div>
           </motion.div>
 
-          {/* Menu de navigation - Desktop only */}
+          {/* Menu de navigation - Desktop only avec effets hover */}
           <div className="hidden lg:flex items-center justify-center space-x-4 xl:space-x-6">
             {navItems.map((item, index) => (
               <motion.a
@@ -75,21 +82,29 @@ const Navigation = () => {
               >
                 <span className="relative z-10 text-sm xl:text-base">{item.label}</span>
                 <motion.div 
-                  className="absolute inset-0 bg-slate-100 dark:bg-slate-800/20 rounded-lg opacity-0 group-hover:opacity-100"
+                  className="absolute inset-0 bg-gradient-to-r from-slate-100 to-gray-100 dark:from-slate-800/20 dark:to-gray-800/20 rounded-lg opacity-0 group-hover:opacity-100"
                   layoutId="navbar-hover"
                 />
                 <motion.div 
-                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-slate-600 rounded-full w-0 group-hover:w-full transition-all duration-300"
+                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-slate-600 to-gray-600 rounded-full w-0 group-hover:w-full transition-all duration-300"
                 />
+                {/* Motif scolaire au hover */}
+                <motion.div
+                  className="absolute -top-1 -right-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <BookOpen className="w-3 h-3 text-slate-500" />
+                </motion.div>
               </motion.a>
             ))}
           </div>
 
-          {/* Theme Toggle & Mobile Menu - Compact */}
+          {/* Theme Toggle & Mobile Menu - Compact avec motifs */}
           <div className="flex items-center space-x-2 sm:space-x-3">
             <motion.button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300"
+              className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 relative group"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -116,11 +131,19 @@ const Navigation = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
+              {/* Motif scolaire au hover */}
+              <motion.div
+                className="absolute -top-1 -right-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+              >
+                <GraduationCap className="w-2 h-2 text-slate-500" />
+              </motion.div>
             </motion.button>
 
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300"
+              className="lg:hidden p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 relative group"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -147,11 +170,19 @@ const Navigation = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
+              {/* Motif scolaire au hover */}
+              <motion.div
+                className="absolute -top-1 -right-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <School className="w-2 h-2 text-slate-500" />
+              </motion.div>
             </motion.button>
           </div>
         </div>
 
-        {/* Mobile Navigation - Improved */}
+        {/* Mobile Navigation - Improved avec motifs */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -161,19 +192,36 @@ const Navigation = () => {
               transition={{ duration: 0.3 }}
               className="lg:hidden overflow-hidden"
             >
-              <div className="py-3 sm:py-4 space-y-1 sm:space-y-2 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-xl mt-2 shadow-lg border border-slate-200/50 dark:border-slate-700/50">
+              <div className="py-3 sm:py-4 space-y-1 sm:space-y-2 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-xl mt-2 shadow-lg border border-slate-200/50 dark:border-slate-700/50 relative">
+                {/* Motifs décoratifs dans le menu mobile */}
+                <div className="absolute top-2 right-2">
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                  >
+                    <BookOpen className="w-4 h-4 text-slate-300/50" />
+                  </motion.div>
+                </div>
+                
                 {navItems.map((item, index) => (
                   <motion.a
                     key={item.href}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="block px-3 sm:px-4 py-2 sm:py-3 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900/20 transition-all duration-300 font-medium rounded-lg mx-2 text-sm sm:text-base"
+                    className="block px-3 sm:px-4 py-2 sm:py-3 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900/20 transition-all duration-300 font-medium rounded-lg mx-2 text-sm sm:text-base group relative"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ x: 10 }}
                   >
                     {item.label}
+                    {/* Motif scolaire au hover pour mobile */}
+                    <motion.div
+                      className="absolute right-2 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity"
+                      whileHover={{ rotate: 180 }}
+                    >
+                      <School className="w-3 h-3 text-slate-400" />
+                    </motion.div>
                   </motion.a>
                 ))}
               </div>
