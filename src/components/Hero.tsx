@@ -57,7 +57,7 @@ const Hero = () => {
     <section id="accueil" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Carousel */}
       <div className="absolute inset-0 w-full h-full">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/70 via-orange-900/60 to-red-900/70 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-gray-900/70 to-slate-800/80 z-10" />
         <AnimatePresence mode="wait">
           <motion.img
             key={currentSlide}
@@ -76,56 +76,56 @@ const Hero = () => {
           />
         </AnimatePresence>
         
-        {/* Navigation du carousel - Position absolue avec z-index élevé */}
+        {/* Navigation du carousel - Mobile optimized */}
         <motion.button
           onClick={prevSlide}
-          className="absolute left-6 top-1/2 transform -translate-y-1/2 z-30 p-3 bg-amber-800/30 backdrop-blur-sm rounded-full hover:bg-amber-700/40 transition-all duration-300 border border-amber-400/30"
+          className="absolute left-2 sm:left-4 lg:left-6 top-1/2 transform -translate-y-1/2 z-30 p-2 sm:p-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-all duration-300 border border-white/20"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          <ChevronLeft className="w-6 h-6 text-amber-100" />
+          <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
         </motion.button>
         
         <motion.button
           onClick={nextSlide}
-          className="absolute right-6 top-1/2 transform -translate-y-1/2 z-30 p-3 bg-amber-800/30 backdrop-blur-sm rounded-full hover:bg-amber-700/40 transition-all duration-300 border border-amber-400/30"
+          className="absolute right-2 sm:right-4 lg:right-6 top-1/2 transform -translate-y-1/2 z-30 p-2 sm:p-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-all duration-300 border border-white/20"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          <ChevronRight className="w-6 h-6 text-amber-100" />
+          <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
         </motion.button>
 
-        {/* Indicateurs du carousel - Position absolue avec z-index élevé */}
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex space-x-3">
+        {/* Indicateurs du carousel - Mobile responsive */}
+        <div className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex space-x-2">
           {heroImages.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                 index === currentSlide 
-                  ? 'bg-amber-300 scale-125' 
-                  : 'bg-amber-100/50'
+                  ? 'bg-white scale-125' 
+                  : 'bg-white/50'
               }`}
             />
           ))}
         </div>
       </div>
 
-      {/* Contenu principal */}
+      {/* Contenu principal - Mobile first responsive */}
       <motion.div
-        className="relative z-20 w-full text-center text-white px-4"
+        className="relative z-20 w-full text-center text-white px-4 sm:px-6 lg:px-8"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        {/* Message principal */}
+        {/* Message principal - Responsive typography */}
         <motion.div
-          className="max-w-4xl mx-auto mb-12"
+          className="max-w-5xl mx-auto mb-8 sm:mb-12 lg:mb-16"
           variants={itemVariants}
         >
-          <div className="bg-gradient-to-br from-amber-800/20 to-orange-800/20 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-2xl border border-amber-300/20">
+          <div className="bg-gradient-to-br from-slate-800/30 to-gray-800/30 backdrop-blur-md rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl border border-white/10">
             <motion.p
-              className="text-2xl lg:text-4xl mb-6 text-amber-100 font-serif italic"
+              className="text-lg sm:text-xl md:text-2xl lg:text-4xl mb-4 sm:mb-6 text-slate-100 font-serif italic leading-tight"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.5 }}
@@ -134,28 +134,28 @@ const Hero = () => {
             </motion.p>
             
             <motion.p
-              className="text-lg lg:text-2xl text-amber-200 leading-relaxed"
+              className="text-sm sm:text-base md:text-lg lg:text-2xl text-slate-200 leading-relaxed"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.8 }}
             >
               Donnez la meilleure chance de réussite à votre enfant en l'inscrivant dans l'établissement de référence, 
-              <strong className="text-amber-100"> Quartier Latin Emmanuel Mounier</strong>.
+              <strong className="text-slate-100"> Quartier Latin Emmanuel Mounier</strong>.
             </motion.p>
           </div>
         </motion.div>
         
-        {/* Boutons d'action */}
+        {/* Boutons d'action - Mobile responsive */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-6 justify-center"
+          className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center max-w-2xl mx-auto"
           variants={itemVariants}
         >
           <motion.a
             href="https://wa.me/22995963345?text=Bonjour%2C+je+souhaite+inscrire+mon+enfant+à+l'école+CS+Quartier+Latin."
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 lg:px-12 py-4 lg:py-6 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-bold text-lg lg:text-2xl rounded-2xl shadow-2xl"
-            whileHover={{ scale: 1.05, y: -5 }}
+            className="w-full sm:w-auto px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-5 bg-gradient-to-r from-slate-700 to-gray-700 hover:from-slate-600 hover:to-gray-600 text-white font-bold text-base sm:text-lg lg:text-xl rounded-xl sm:rounded-2xl shadow-2xl border border-white/20"
+            whileHover={{ scale: 1.05, y: -3 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
@@ -164,8 +164,8 @@ const Hero = () => {
           
           <motion.a
             href="#about"
-            className="px-8 lg:px-12 py-4 lg:py-6 bg-gradient-to-r from-amber-800/30 to-orange-800/30 hover:from-amber-700/40 hover:to-orange-700/40 backdrop-blur-sm text-white font-bold text-lg lg:text-2xl rounded-2xl shadow-2xl border-2 border-amber-300/40"
-            whileHover={{ scale: 1.05, y: -5 }}
+            className="w-full sm:w-auto px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-5 bg-gradient-to-r from-white/10 to-slate-100/10 hover:from-white/20 hover:to-slate-100/20 backdrop-blur-sm text-white font-bold text-base sm:text-lg lg:text-xl rounded-xl sm:rounded-2xl shadow-2xl border border-white/30"
+            whileHover={{ scale: 1.05, y: -3 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
@@ -176,11 +176,11 @@ const Hero = () => {
 
       {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20"
+        className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <ArrowDown className="w-8 h-8 text-amber-200/80" />
+        <ArrowDown className="w-6 h-6 sm:w-8 sm:h-8 text-white/80" />
       </motion.div>
     </section>
   );
