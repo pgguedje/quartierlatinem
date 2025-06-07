@@ -15,6 +15,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Newsletter from './components/Newsletter';
 import SEOHead from './components/SEOHead';
+import SectionDivider from './components/SectionDivider';
 
 // NOUVELLES SECTIONS AVEC DONNÉES ADMIN
 import InscriptionSection from './components/InscriptionSection';
@@ -31,19 +32,34 @@ import ConnectionManager from './components/admin/ConnectionManager';
 
 import './App.css';
 
-// Public website component - TOUTES LES DONNÉES DEPUIS ADMIN
+// Public website component - TOUTES LES DONNÉES DEPUIS ADMIN avec séparateurs néon
 const PublicWebsite = () => (
   <div className="min-h-screen w-full bg-gradient-to-br from-orange-50 via-amber-50 to-red-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
     <SEOHead />
     <Navigation />
     <Hero />
+    
+    <SectionDivider title="🏫 CS Quartier Latin EM" subtitle="Vouloir Pouvoir Réussir" />
     <About />
+    
+    <SectionDivider title="💎 Nos Valeurs" subtitle="Excellence • Tradition • Avenir" />
     <Values />
+    
+    <SectionDivider title="📝 Inscriptions" subtitle="Rejoignez notre famille béninoise" />
     <InscriptionSection />
+    
+    <SectionDivider title="🍽️ Cantine" subtitle="Cuisine authentique et équilibrée" />
     <Cantine />
+    
+    <SectionDivider title="📢 Actualités" subtitle="Restez informés de nos événements" />
     <AnnouncementsSection />
+    
+    <SectionDivider title="🏆 Nos Résultats" subtitle="Excellence académique béninoise" />
     <Results />
+    
+    <SectionDivider title="📞 Contactez-nous" subtitle="Notre équipe béninoise à votre service" />
     <Contact />
+    
     <Footer />
     <Newsletter />
   </div>
@@ -71,7 +87,7 @@ function App() {
               <Route path="/" element={<PublicWebsite />} />
               
               {/* Admin routes - NOUVELLE URL */}
-              <Route path="/djidjognon" element={<Navigate to="/djidjognon/dashboard\" replace />} />
+              <Route path="/djidjognon" element={<Navigate to="/djidjognon/dashboard" replace />} />
               <Route path="/djidjognon/*" element={
                 <ProtectedRoute>
                   <AdminLayout />
@@ -86,8 +102,8 @@ function App() {
               </Route>
               
               {/* Redirection de l'ancienne route admin vers la nouvelle */}
-              <Route path="/admin" element={<Navigate to="/djidjognon\" replace />} />
-              <Route path="/admin/*" element={<Navigate to="/djidjognon\" replace />} />
+              <Route path="/admin" element={<Navigate to="/djidjognon" replace />} />
+              <Route path="/admin/*" element={<Navigate to="/djidjognon" replace />} />
             </Routes>
           </Router>
         </AuthProvider>
