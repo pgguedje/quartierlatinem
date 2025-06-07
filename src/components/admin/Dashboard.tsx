@@ -34,28 +34,28 @@ const Dashboard = () => {
       description: 'Gérer les informations générales',
       icon: School,
       color: 'bg-blue-500',
-      link: '/infos'
+      link: '/djidjognon/infos'
     },
     {
       title: 'Cantine',
       description: 'Menus et tarifs de la cantine',
       icon: UtensilsCrossed,
       color: 'bg-green-500',
-      link: '/cantine'
+      link: '/djidjognon/cantine'
     },
     {
       title: 'Annonces',
       description: `${stats.totalAnnouncements} annonces actives`,
       icon: Megaphone,
       color: 'bg-yellow-500',
-      link: '/annonces'
+      link: '/djidjognon/annonces'
     },
     {
       title: 'Newsletter',
       description: `${stats.newsletterSubscribers} abonnés`,
       icon: Mail,
       color: 'bg-purple-500',
-      link: '/newsletter'
+      link: '/djidjognon/newsletter'
     }
   ];
 
@@ -101,7 +101,7 @@ const Dashboard = () => {
             <span className="text-blue-900 dark:text-blue-400 font-medium">Voir les statistiques</span>
           </button>
           <button 
-            onClick={() => window.location.href = '/annonces'}
+            onClick={() => window.location.href = '/djidjognon/annonces'}
             className="flex items-center p-4 bg-green-50 dark:bg-green-900/20 rounded-lg hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
           >
             <Megaphone className="w-5 h-5 text-green-600 dark:text-green-400 mr-3" />

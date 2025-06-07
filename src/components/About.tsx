@@ -18,10 +18,20 @@ interface SchoolDataType {
   };
 }
 
+interface LevelType {
+  id: string;
+  title: string;
+  icon: any;
+  color: string;
+  bgColor: string;
+  description: string;
+  image: string;
+}
+
 const About = () => {
   const { ref, hasIntersected } = useIntersectionObserver();
   const [schoolData, setSchoolData] = useState<SchoolDataType | null>(null);
-  const [selectedLevel, setSelectedLevel] = useState(null);
+  const [selectedLevel, setSelectedLevel] = useState<LevelType | null>(null);
 
   useEffect(() => {
     const stored = localStorage.getItem('admin_infos');
@@ -129,6 +139,16 @@ const About = () => {
           initial="hidden"
           animate={hasIntersected ? "visible" : "hidden"}
         >
+          <motion.h2
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-r from-slate-700 to-gray-700 bg-clip-text text-transparent mb-4 sm:mb-6"
+            variants={itemVariants}
+          >
+            Notre École
+          </motion.h2>
+          <motion.div
+            className="w-16 sm:w-20 lg:w-24 h-1 bg-gradient-to-r from-slate-500 to-gray-500 mx-auto mb-4 sm:mb-6 rounded-full"
+            variants={itemVariants}
+          />
           <motion.p
             className="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-4"
             variants={itemVariants}
@@ -144,7 +164,7 @@ const About = () => {
           initial="hidden"
           animate={hasIntersected ? "visible" : "hidden"}
         >
-          {levels.map((level, _index) => {
+          {levels.map((level) => {
             const Icon = level.icon;
             const levelData = schoolData.niveaux[level.id];
             
@@ -213,7 +233,7 @@ const About = () => {
             { icon: BookOpen, label: 'Professeurs', value: '30+', color: 'from-orange-500 to-red-600' },
             { icon: Award, label: 'Années', value: '15+', color: 'from-purple-500 to-pink-600' },
             { icon: Star, label: 'Réussite', value: '95%', color: 'from-green-500 to-emerald-600' }
-          ].map((stat, _index) => {
+          ].map((stat) => {
             const Icon = stat.icon;
             return (
               <motion.div

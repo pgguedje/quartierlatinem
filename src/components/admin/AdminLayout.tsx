@@ -29,12 +29,12 @@ const AdminLayout = () => {
   };
 
   const menuItems = [
-    { path: '/dashboard', icon: LayoutDashboard, label: 'Tableau de bord' },
-    { path: '/infos', icon: School, label: 'Infos établissement' },
-    { path: '/cantine', icon: UtensilsCrossed, label: 'Cantine' },
-    { path: '/annonces', icon: Megaphone, label: 'Annonces' },
-    { path: '/newsletter', icon: Mail, label: 'Newsletter' },
-    { path: '/connexion', icon: Settings, label: 'Connexion' },
+    { path: '/djidjognon/dashboard', icon: LayoutDashboard, label: 'Tableau de bord' },
+    { path: '/djidjognon/infos', icon: School, label: 'Infos établissement' },
+    { path: '/djidjognon/cantine', icon: UtensilsCrossed, label: 'Cantine' },
+    { path: '/djidjognon/annonces', icon: Megaphone, label: 'Annonces' },
+    { path: '/djidjognon/newsletter', icon: Mail, label: 'Newsletter' },
+    { path: '/djidjognon/connexion', icon: Settings, label: 'Connexion' },
   ];
 
   return (
