@@ -87,7 +87,7 @@ function App() {
               <Route path="/" element={<PublicWebsite />} />
               
               {/* Admin routes - NOUVELLE URL */}
-              <Route path="/djidjognon" element={<Navigate to="/djidjognon/dashboard" replace />} />
+              <Route path="/djidjognon" element={<Navigate to="/djidjognon/dashboard\" replace />} />
               <Route path="/djidjognon/*" element={
                 <ProtectedRoute>
                   <AdminLayout />
@@ -102,8 +102,8 @@ function App() {
               </Route>
               
               {/* Redirection de l'ancienne route admin vers la nouvelle */}
-              <Route path="/admin" element={<Navigate to="/djidjognon" replace />} />
-              <Route path="/admin/*" element={<Navigate to="/djidjognon" replace />} />
+              <Route path="/admin" element={<Navigate to="/djidjognon\" replace />} />
+              <Route path="/admin/*" element={<Navigate to="/djidjognon\" replace />} />
             </Routes>
           </Router>
         </AuthProvider>
