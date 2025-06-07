@@ -4,14 +4,7 @@
 
 Pour accéder à l'interface d'administration :
 
-### URL d'accès admin :
-```
-https://quartierlatinem.site/djidjognon
-```
 
-### Identifiants par défaut :
-- **Email :** admin@gmail.com
-- **Mot de passe :** admin
 
 ### Fonctionnalités admin disponibles :
 - 📊 Tableau de bord
@@ -52,7 +45,7 @@ Le site utilise une palette de couleurs inspirée du drapeau béninois :
 
 ## 📞 Contact
 
-- **Téléphone :** +229 95 96 33 45
+- **Téléphone :** +229 97689245
 - **Email :** contact@csquartierlatin.bj
 - **Adresse :** Abomey-Calavi (Zogbadjè), Bénin
 
