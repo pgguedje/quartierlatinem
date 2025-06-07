@@ -1,11 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
-import { GraduationCap, Users, BookOpen, Award, Star, Heart, X, ChevronRight, Baby, School, Pencil } from 'lucide-react';
+import { GraduationCap, Users, BookOpen, Award, Star, X, ChevronRight, Baby, School, Pencil } from 'lucide-react';
+
+interface SchoolDataType {
+  ecole: {
+    description: string;
+  };
+  niveaux: {
+    [key: string]: {
+      titre: string;
+      description: string;
+      classes: string[];
+      series?: string[];
+      pedagogie: string;
+    };
+  };
+}
 
 const About = () => {
   const { ref, hasIntersected } = useIntersectionObserver();
-  const [schoolData, setSchoolData] = useState(null);
+  const [schoolData, setSchoolData] = useState<SchoolDataType | null>(null);
   const [selectedLevel, setSelectedLevel] = useState(null);
 
   useEffect(() => {
@@ -129,7 +144,7 @@ const About = () => {
           initial="hidden"
           animate={hasIntersected ? "visible" : "hidden"}
         >
-          {levels.map((level, index) => {
+          {levels.map((level, _index) => {
             const Icon = level.icon;
             const levelData = schoolData.niveaux[level.id];
             
@@ -198,7 +213,7 @@ const About = () => {
             { icon: BookOpen, label: 'Professeurs', value: '30+', color: 'from-orange-500 to-red-600' },
             { icon: Award, label: 'Années', value: '15+', color: 'from-purple-500 to-pink-600' },
             { icon: Star, label: 'Réussite', value: '95%', color: 'from-green-500 to-emerald-600' }
-          ].map((stat, index) => {
+          ].map((stat, _index) => {
             const Icon = stat.icon;
             return (
               <motion.div
